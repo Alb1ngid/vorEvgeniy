@@ -12,8 +12,8 @@ class SuperHero:
         return self.name
 
     def double_HP(self):
-        new_HP = self.health_point * 2
-        return new_HP
+        self.health_point *= 2
+        return self.health_point
 
     def __str__(self):
         return f"Nickname: {self.nickname}, Superpower: {self.superpower}, Health: {self.health_point}"
