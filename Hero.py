@@ -26,6 +26,22 @@ class SuperHero:
     def __len__(self):
         return len(self.catchphrase)
 
+# Класс огненного героя (наследуется от SuperHero)
+class Fire(SuperHero):
+    def __init__(self, name, nickname, superpower, health_point, catchphrase, damage):
+        super().__init__(name, nickname, superpower, health_point, catchphrase, damage)
+        self.fly = True  # Огненный герой может летать
+
+    # Переопределение метода увеличения здоровья
+    def double_HP(self):
+        self.health_point *= 3  # Увеличивает здоровье в 3 раза вместо 2
+        return self.health_point
+
+    # Переопределение магического метода __str__
+    def __str__(self):
+        return f"Fire Hero - {super().__str__()}"
+
+
 #Создание экземпляра
 new_hero = SuperHero('Batman', 'Batty', 'Money', 147, 'I`m Batman!')
 
