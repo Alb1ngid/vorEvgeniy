@@ -81,6 +81,19 @@ water_hero = Water('WaterMan', 'Splash', 'Water Control', 120, 'Feel the wave!',
 # Создание экземпляра злодея
 villain = Villian('DoomLord', 'Doom', 'Darkness Control', 200, 'Fear the dark!', 60)
 
+# Вызов методов для каждого героя
+print(fire_hero.super_name())
+print(fire_hero.square_HP())  # Возведение здоровья в квадрат и изменение fly
+print(fire_hero)
+print(fire_hero.true_phrase())  # Вызов метода с фразой
+print(len(fire_hero))
+
+print(water_hero.super_name())
+print(water_hero.square_HP())  # Возведение здоровья в квадрат и изменение fly
+print(water_hero)
+print(water_hero.true_phrase())  # Вызов метода с фразой
+print(len(water_hero))
+
 # Вызов методов для злодея
 print(villain.super_name())
 print(villain.square_HP())  # Возведение здоровья в квадрат и изменение fly
@@ -93,7 +106,7 @@ print(f"Damage before crit: {villain.damage}")
 villain.crit()
 print(f"Damage after crit: {villain.damage}")
 
-# Применение метода crit для героя с аргументом damage (например, для fire_hero)
-print(f"Fire hero damage before crit: {fire_hero.damage}")
-fire_hero.damage = villain.crit()  # Применяем метод crit к fire_hero
-print(f"Fire hero damage after crit: {fire_hero.damage}")
+# Применение метода crit для героя с аргументом damage
+print(f"Fire hero damage before crit: {fire_hero.health_point}")
+fire_hero.health_point -= villain.damage  # Применяем метод crit к fire_hero
+print(f"Fire hero damage after crit: {fire_hero.health_point}")
