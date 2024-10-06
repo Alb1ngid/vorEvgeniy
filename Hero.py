@@ -23,7 +23,7 @@ class SuperHero:
 
     # Новый метод, выводящий фразу
     def true_phrase(self):
-        return "True in the True_phrase"
+        return f"True in the {self.catchphrase}"
 
     # Магический метод, который выводит прозвище героя, его суперспособность и здоровье
     def __str__(self):
@@ -51,6 +51,20 @@ class Water(SuperHero):
     # Переопределение магического метода __str__
     def __str__(self):
         return f"Water Hero - {super().__str__()}"
+
+class Villian(SuperHero):
+    people = "monster"
+
+    def __init__(self, name, nickname, superpower, health_point, catchphrase, damage):
+        super().__init__(name, nickname, superpower, health_point, catchphrase, damage)
+
+    def __str__(self):
+        return f"Mega Monster - {super().__str__()}"
+
+    def gen_x(self):
+        pass
+
+
 
 # Создание экземпляров героев
 fire_hero = Fire('FireMan', 'Blaze', 'Fire Manipulation', 100, 'Burn them all!', 50)
