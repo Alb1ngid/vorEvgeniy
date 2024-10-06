@@ -52,33 +52,48 @@ class Water(SuperHero):
     def __str__(self):
         return f"Water Hero - {super().__str__()}"
 
+
+# Класс злодея (наследуется от SuperHero)
 class Villian(SuperHero):
-    people = "monster"
+    people = "monster"  # Меняем значение на monster
 
     def __init__(self, name, nickname, superpower, health_point, catchphrase, damage):
         super().__init__(name, nickname, superpower, health_point, catchphrase, damage)
 
+    # Переопределение магического метода __str__
     def __str__(self):
         return f"Mega Monster - {super().__str__()}"
 
+    # Метод gen_x пока ничего не делает
     def gen_x(self):
         pass
 
+    # Метод crit, который возводит урон в степень
+    def crit(self):
+        self.damage **= 2
+        return self.damage
 
 
 # Создание экземпляров героев
 fire_hero = Fire('FireMan', 'Blaze', 'Fire Manipulation', 100, 'Burn them all!', 50)
 water_hero = Water('WaterMan', 'Splash', 'Water Control', 120, 'Feel the wave!', 40)
 
-# Вызов методов для каждого героя
-print(fire_hero.super_name())
-print(fire_hero.square_HP())  # Возведение здоровья в квадрат и изменение fly
-print(fire_hero)
-print(fire_hero.true_phrase())  # Вызов метода с фразой
-print(len(fire_hero))
+# Создание экземпляра злодея
+villain = Villian('DoomLord', 'Doom', 'Darkness Control', 200, 'Fear the dark!', 60)
 
-print(water_hero.super_name())
-print(water_hero.square_HP())  # Возведение здоровья в квадрат и изменение fly
-print(water_hero)
-print(water_hero.true_phrase())  # Вызов метода с фразой
-print(len(water_hero))
+# Вызов методов для злодея
+print(villain.super_name())
+print(villain.square_HP())  # Возведение здоровья в квадрат и изменение fly
+print(villain)
+print(villain.true_phrase())  # Вызов метода с фразой
+print(len(villain))
+
+# Применение метода crit к злодею и вывод нового значения damage
+print(f"Damage before crit: {villain.damage}")
+villain.crit()
+print(f"Damage after crit: {villain.damage}")
+
+# Применение метода crit для героя с аргументом damage (например, для fire_hero)
+print(f"Fire hero damage before crit: {fire_hero.damage}")
+fire_hero.damage = villain.crit()  # Применяем метод crit к fire_hero
+print(f"Fire hero damage after crit: {fire_hero.damage}")
