@@ -110,3 +110,5 @@ print(f"Damage after crit: {villain.damage}")
 print(f"Fire hero damage before crit: {fire_hero.health_point}")
 fire_hero.health_point -= villain.damage  # Применяем метод crit к fire_hero
 print(f"Fire hero damage after crit: {fire_hero.health_point}")
+
+print('sexrdctfvygbuhij')
